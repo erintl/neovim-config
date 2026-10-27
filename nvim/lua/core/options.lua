@@ -31,6 +31,9 @@ opt.clipboard = "unnamedplus"
 opt.list = true
 opt.winborder = "rounded" -- border for floating windows (LSP hover, signature help, ...)
 
+-- Folding
+opt.foldlevel = 99
+
 -- split windows
 opt.splitright = true
 opt.splitbelow = true

@@ -1,3 +1,8 @@
+-- Default colorscheme, e.g. "tokyonight" or "catppuccin-nvim" (not "catppuccin": that is the
+-- built-in Vim port, not the plugin). Try others for the session
+-- with the Telescope colorscheme picker (<leader>fs).
+local default_colorscheme = "tokyonight"
+
 local setup_lazy = function()
   local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
@@ -30,7 +35,14 @@ local setup_lazy = function()
     change_detection = {
       notify = false,
     },
+    install = {
+      -- Used for the lazy.nvim UI while installing missing plugins on a fresh machine
+      colorscheme = { default_colorscheme, "habamax" },
+    },
   })
+
+  -- Colorscheme plugins are lazy: lazy.nvim loads (and runs setup for) the one this names
+  vim.cmd.colorscheme(default_colorscheme)
 
   -- Keymaps
   -- local keymap = vim.keymap

@@ -21,7 +21,7 @@ return {
 
       lualine.setup({
         options = {
-          theme = "tokyonight",
+          theme = "auto", -- follows the current colorscheme
           globalstatus = true,
           component_separators = { left = "", right = "" },
           section_separators = { left = "", right = "" },
