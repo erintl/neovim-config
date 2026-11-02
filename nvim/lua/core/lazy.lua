@@ -1,7 +1,7 @@
 -- Default colorscheme, e.g. "tokyonight" or "catppuccin-nvim" (not "catppuccin": that is the
 -- built-in Vim port, not the plugin). Try others for the session
 -- with the Telescope colorscheme picker (<leader>fs).
-local default_colorscheme = "tokyonight"
+local default_colorscheme = "catppuccin-nvim"
 
 local setup_lazy = function()
   local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
