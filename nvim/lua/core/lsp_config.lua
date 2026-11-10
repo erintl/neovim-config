@@ -14,7 +14,7 @@ M.default_lsp_servers = {
   "jsonls",
   "yamlls",
   "bashls",
-  -- "sorbet",
+  "sorbet",
 }
 
 -- Neovim provides these LSP keymaps by default (see `:h lsp-defaults`):

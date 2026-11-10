@@ -47,6 +47,17 @@ return {
         },
       })
 
+      -- Only start Sorbet in projects that use it (have a `sorbet/config`), otherwise
+      -- `srb tc --lsp` errors in every plain Ruby project. Not calling `on_dir` skips the server.
+      vim.lsp.config("sorbet", {
+        root_dir = function(bufnr, on_dir)
+          local root = vim.fs.root(bufnr, { "Gemfile", ".git" })
+          if root and vim.uv.fs_stat(root .. "/sorbet/config") then
+            on_dir(root)
+          end
+        end,
+      })
+
       -- JSON and YAML schemas (package.json, tsconfig, GitHub workflows, docker-compose, ...)
       vim.lsp.config("jsonls", {
         settings = {
@@ -66,10 +77,6 @@ return {
           },
         },
       })
-
-      -- vim.lsp.config.graphql = {
-      --   filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-      -- }
 
       -- Only servers in the list are enabled (mason-lspconfig's automatic_enable is off)
       vim.lsp.enable(lsp_config.default_lsp_servers)
